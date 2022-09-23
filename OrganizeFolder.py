@@ -20,10 +20,10 @@ for dir_, _, files in os.walk(folder):
             os.makedirs(new_path)
         shutil.move(file_path,os.path.join(new_path,file_name))
 
-for path, _, _ in os.walk(folder):
+for path, _, _ in os.walk(folder, topdown=False):
     if len(os.listdir(path)) == 0:
         print(f"Removing Folder: {path}")
         os.rmdir(path)
 
 execution_time = (time.time() - start_time)
-print('Executed in: ' + execution_time + '  seconds.') 
+print('Executed in: ' + str(execution_time) + '  seconds.') 
